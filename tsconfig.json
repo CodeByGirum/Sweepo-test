@@ -1,27 +1,36 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "target": "es5", // Use ES5 for maximum compatibility; consider "esnext" if targeting modern browsers
+    "lib": ["dom", "dom.iterable", "esnext"], // Include DOM and ESNext for modern JavaScript features
+    "allowJs": true, // Allow JavaScript files to be part of the project
+    "skipLibCheck": true, // Skip type checking of declaration files for faster builds
+    "strict": true, // Enable strict type checking options
+    "noEmit": true, // Prevent emitting output files
+    "esModuleInterop": true, // Allow default imports from CommonJS modules
+    "module": "esnext", // Use ESNext module system
+    "moduleResolution": "node", // Use Node.js style module resolution
+    "resolveJsonModule": true, // Allow importing JSON files as modules
+    "isolatedModules": true, // Ensure each file can be transpiled individually
+    "jsx": "preserve", // Preserve JSX syntax for Next.js to handle
+    "incremental": true, // Enable incremental builds for faster re-compilation
+    "baseUrl": ".", // Set the base URL for resolving paths
+    "paths": {
+      "@/*": ["./*"] // Use `@/` as an alias for the root directory
+    },
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Next.js-specific TypeScript plugin
       }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "amplify"]
+  "include": [
+    "next-env.d.ts", // Next.js environment types
+    "**/*.ts", // Include all TypeScript files
+    "**/*.tsx", // Include all TSX files
+    ".next/types/**/*.ts" // Include Next.js generated types
+  ],
+  "exclude": [
+    "node_modules", // Exclude external modules
+    "amplify" // Exclude Amplify-related files (optional, based on your setup)
+  ]
 }
